@@ -1,9 +1,0 @@
-package yychatclient;
-
-public class ClientLogin {
-
-	public ClientLogin() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
