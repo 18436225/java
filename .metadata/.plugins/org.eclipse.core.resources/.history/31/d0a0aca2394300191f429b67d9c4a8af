@@ -48,7 +48,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 	JButton blacklistJButton2;
 	
 	JPanel blacklistJPanel;
-	static final int BLACKLIST=21;
+	static final int BLACKLIST=11;
 	JLabel[] blacklistJLabel=new JLabel[BLACKLIST];
 	
 	
@@ -117,9 +117,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		
 		myFriendStrangerblacklistPanel=new JPanel(new GridLayout(3,1));
 		myFriendJButton2=new JButton("我的好友");
-		myFriendJButton2.addActionListener(this);
 		myStrangerJButton2=new JButton("我的陌生人");
-		myStrangerJButton2.addActionListener(this);
 		blacklistJButton2=new JButton("黑名单");
 		myFriendStrangerblacklistPanel.add(myFriendJButton2);
 		myFriendStrangerblacklistPanel.add(myStrangerJButton2);
@@ -134,8 +132,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 			blacklistJPanel.add(blacklistJLabel[i]);
 		}
 		blacklistScrollPane=new JScrollPane(blacklistJPanel);
-		blacklistPanel.add(blacklistScrollPane);
-		
+		myStrangerPanel.add(blacklistScrollPane);
 		
 		
 		
@@ -160,14 +157,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		if(argo.getSource()==myStrangerJButton){
 			cardLayout.show(this.getContentPane(), "2");
 		}
-		if(argo.getSource()==myStrangerJButton2){
-			cardLayout.show(this.getContentPane(), "2");
-		}
 		if(argo.getSource()==myFriendJButton1){
-			cardLayout.show(this.getContentPane(), "1");
-			
-		}
-		if(argo.getSource()==myFriendJButton2){
 			cardLayout.show(this.getContentPane(), "1");
 			
 		}

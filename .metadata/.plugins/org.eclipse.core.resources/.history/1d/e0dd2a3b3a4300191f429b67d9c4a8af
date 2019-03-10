@@ -48,7 +48,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 	JButton blacklistJButton2;
 	
 	JPanel blacklistJPanel;
-	static final int BLACKLIST=21;
+	static final int BLACKLIST=11;
 	JLabel[] blacklistJLabel=new JLabel[BLACKLIST];
 	
 	

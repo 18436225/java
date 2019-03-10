@@ -48,7 +48,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 	JButton blacklistJButton2;
 	
 	JPanel blacklistJPanel;
-	static final int BLACKLIST=21;
+	static final int BLACKLIST=11;
 	JLabel[] blacklistJLabel=new JLabel[BLACKLIST];
 	
 	
@@ -96,15 +96,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		myFriendStrangerPanel.add(myStrangerJButton1);
 		myStrangerPanel.add(myFriendStrangerPanel,"North");
 		
-		myStrangerListJPanel=new JPanel(new GridLayout(STRANGER-1,1));
-		for(int i=1;i<STRANGER;i++)
-		{
-			myStrangerJLabel[i]=new JLabel(i+"",new ImageIcon("images/YY1.gif"),JLabel.LEFT);//"2"
-			myStrangerJLabel[i].addMouseListener(this);
-			myStrangerListJPanel.add(myStrangerJLabel[i]);
-		}
-		myStrangerScrollPane=new JScrollPane(myStrangerListJPanel);
-		myStrangerPanel.add(myStrangerScrollPane);
+		
 		
 		
 		blacklistJButton1=new JButton("ºÚÃûµ¥");
@@ -134,7 +126,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 			blacklistJPanel.add(blacklistJLabel[i]);
 		}
 		blacklistScrollPane=new JScrollPane(blacklistJPanel);
-		blacklistPanel.add(blacklistScrollPane);
+		myStrangerPanel.add(blacklistScrollPane);
 		
 		
 		

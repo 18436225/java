@@ -177,7 +177,7 @@
               </children>
             </children>
             <children xsi:type="basic:PartSashContainer" xmi:id="_JFoQ2z1uEeml-6G6Tcr78A" containerData="7500" selectedElement="_JFoQ3D1uEeml-6G6Tcr78A">
-              <children xsi:type="basic:PartSashContainer" xmi:id="_JFoQ3D1uEeml-6G6Tcr78A" containerData="7500" selectedElement="_JFoQ3T1uEeml-6G6Tcr78A" horizontal="true">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_JFoQ3D1uEeml-6G6Tcr78A" containerData="8972" selectedElement="_JFoQ3T1uEeml-6G6Tcr78A" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_JFoQ3T1uEeml-6G6Tcr78A" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_5XvHkDycEembo-A8NcENDg"/>
                 <children xsi:type="basic:PartSashContainer" xmi:id="_JFoQ3j1uEeml-6G6Tcr78A" containerData="2500" selectedElement="_JFoQ4T1uEeml-6G6Tcr78A">
                   <children xsi:type="basic:PartStack" xmi:id="_JFoQ3z1uEeml-6G6Tcr78A" elementId="org.eclipse.mylyn.tasks.ui.views.tasksMStack" containerData="5000" selectedElement="_JFoQ4D1uEeml-6G6Tcr78A">
@@ -193,7 +193,7 @@
                   </children>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_JFoQ5T1uEeml-6G6Tcr78A" elementId="bottom" containerData="2500" selectedElement="_JFoQ6j1uEeml-6G6Tcr78A">
+              <children xsi:type="basic:PartStack" xmi:id="_JFoQ5T1uEeml-6G6Tcr78A" elementId="bottom" containerData="1028" selectedElement="_JFoQ6j1uEeml-6G6Tcr78A">
                 <tags>newtablook</tags>
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_JFoQ5j1uEeml-6G6Tcr78A" elementId="org.eclipse.ui.views.ProblemView" ref="_5aBmkTycEembo-A8NcENDg"/>
@@ -238,13 +238,13 @@
         <tags>EditorStack</tags>
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_AxxbEEAdEemHKueyZXE1Yg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="ClientLogin.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ClientLogin.java&quot; partName=&quot;ClientLogin.java&quot; title=&quot;ClientLogin.java&quot; tooltip=&quot;yychatclient/src/com/yychatclient/view/ClientLogin.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/yychatclient/src/com/yychatclient/view/ClientLogin.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;641&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ClientLogin.java&quot; partName=&quot;ClientLogin.java&quot; title=&quot;ClientLogin.java&quot; tooltip=&quot;yychatclient/src/com/yychatclient/view/ClientLogin.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/yychatclient/src/com/yychatclient/view/ClientLogin.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;190&quot; selectionTopPixel=&quot;517&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_GBozwECBEemRHJVvR6_Z7w" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="FriendList.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FriendList.java&quot; partName=&quot;FriendList.java&quot; title=&quot;FriendList.java&quot; tooltip=&quot;yychatclient/src/com/yychatclient/view/FriendList.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/yychatclient/src/com/yychatclient/view/FriendList.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1347&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FriendList.java&quot; partName=&quot;FriendList.java&quot; title=&quot;FriendList.java&quot; tooltip=&quot;yychatclient/src/com/yychatclient/view/FriendList.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/yychatclient/src/com/yychatclient/view/FriendList.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1198&quot; selectionTopPixel=&quot;2691&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -397,7 +397,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5QlWsDycEembo-A8NcENDg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_SQFK8EMQEemxV9KrI1mjRA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_47eplzycEembo-A8NcENDg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_RzwpR0M6EemXfYvIT3GDcQ" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_47eplzycEembo-A8NcENDg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5QlWsTycEembo-A8NcENDg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -430,7 +430,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5Ql9wDycEembo-A8NcENDg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_SQI1UEMQEemxV9KrI1mjRA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_47eCcTycEembo-A8NcENDg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_Rz06sEM6EemXfYvIT3GDcQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_47eCcTycEembo-A8NcENDg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5Ql9wTycEembo-A8NcENDg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
