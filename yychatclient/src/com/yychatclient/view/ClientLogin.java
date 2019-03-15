@@ -2,10 +2,15 @@ package com.yychatclient.view;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class ClientLogin extends JFrame{//类名：ClientLogin，模板，对象的模板
+import com.yychat.model.User;
+import com.yychatclient.controller.ClientConnect;
+
+public class ClientLogin extends JFrame implements ActionListener{//类名：ClientLogin，模板，对象的模板
 	//定义北部组件
 	JLabel jlbl1;//定义标签
 	
@@ -47,6 +52,7 @@ public class ClientLogin extends JFrame{//类名：ClientLogin，模板，对象的模板
 		
 		//创建南部组件
 		jb1=new JButton(new ImageIcon("images/denglu.gif"));
+		jb1.addActionListener(this);
 		jb2=new JButton(new ImageIcon("images/zhuce.gif"));
 		jb3=new JButton(new ImageIcon("images/quxiao.gif"));
 		jp1=new JPanel();
@@ -55,6 +61,7 @@ public class ClientLogin extends JFrame{//类名：ClientLogin，模板，对象的模板
 		
 		this.setSize(350,240);//设置窗口大小
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);		
 	}
 	
@@ -63,4 +70,21 @@ public class ClientLogin extends JFrame{//类名：ClientLogin，模板，对象的模板
 		ClientLogin clientLogin=new ClientLogin();//创建对象，构造方法
 	}
 
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==jb1){
+			String userName = jtf1.getText().trim();
+			String passWord=new String(jpf1.getPassword());
+			User user=new User();
+			user.setUserName(userName);
+			user.setPassWord(passWord);
+			
+			new ClientConnect().loginValidate(user);
+			
+			new FriendList(userName);
+			this.dispose();
+		}
+	}
+	
 }

@@ -1,9 +1,0 @@
-package com.yychatclient.view;
-
-public class Friendlist {
-
-	public Friendlist() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
