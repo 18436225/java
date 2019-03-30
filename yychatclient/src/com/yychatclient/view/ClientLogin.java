@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import com.yychat.model.Message;
 import com.yychat.model.User;
 import com.yychatclient.controller.ClientConnect;
 
@@ -80,10 +81,15 @@ public class ClientLogin extends JFrame implements ActionListener{//ÀàÃû£ºClient
 			user.setUserName(userName);
 			user.setPassWord(passWord);
 			
-			new ClientConnect().loginValidate(user);
+			Message mess=new ClientConnect().loginValidate(user);
+			if(mess.getMessageType().equals("1")){
+				new FriendList(userName);
+				this.dispose();
+			}
+			else{
+				JOptionPane.showMessageDialog(this,"ÃÜÂë´íÎó");
+			}
 			
-			new FriendList(userName);
-			this.dispose();
 		}
 	}
 	

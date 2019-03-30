@@ -3,10 +3,16 @@ package com.yychatclient.view;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import javax.swing.*;
 
-public class FriendChat extends JFrame implements ActionListener{
+import com.yychat.model.Message;
+import com.yychatclient.controller.ClientConnect;
+
+public class FriendChat extends JFrame implements ActionListener,Runnable{
 
 	
 	//
@@ -18,7 +24,15 @@ public class FriendChat extends JFrame implements ActionListener{
 	JPanel jp;
 	JTextField jtf;
 	JButton jb;
+	
+	String sender;
+	String receiver;
+	
 	public FriendChat(String sender, String receiver){
+		this.sender=sender;
+		this.receiver=receiver;
+		
+		
 		jta = new JTextArea();
 		jta.setEditable(false);
 		jsp =new JScrollPane(jta);
@@ -48,8 +62,41 @@ public class FriendChat extends JFrame implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		if(arg0.getSource()==jb) jta.append(jtf.getText()+"\r\n");
+		if(arg0.getSource()==jb) 
+			jta.append(jtf.getText()+"\r\n");
+			
+			Message mess = new Message();
+			mess.setSender(sender);
+			mess.setReceiver(receiver);
+			mess.setContent(jtf.getText());
+			mess.setMessageType(Message.message_Common);
+			ObjectOutputStream oos;
+			
+			try {
+				
+				oos = new ObjectOutputStream(ClientConnect.s.getOutputStream());
+				oos.writeObject(mess);
+				
+			} catch (IOException e) {
+			
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+	@Override
+	public void run() {	
+		while(true){
+		try {
+			ObjectInputStream ois = new ObjectInputStream(ClientConnect.s.getInputStream());
+			Message mess = (Message)ois.readObject();
+			String showMessage=mess.getSender()+"¶Ô"+mess.getReceiver()+"Ëµ£º"+mess.getContent();
+			System.out.println(showMessage);
+			jta.append(showMessage+"\r\n");
+		} catch (IOException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+				}
 		
 	}
-
-}
