@@ -48,7 +48,7 @@ public class FriendChat1 extends JFrame implements ActionListener{
 		jp.add(jtf);
 		jp.add(jb);
 		this.add(jp,"South");
-		getRootPane().setDefaultButton(jb);
+		
 		
 		this.setSize(350,240);
 		this.setTitle(sender+"正在和"+receiver+"聊天");
