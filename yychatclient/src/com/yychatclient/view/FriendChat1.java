@@ -6,13 +6,14 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 import javax.swing.*;
 
 import com.yychat.model.Message;
 import com.yychatclient.controller.ClientConnect;
 
-public class FriendChat extends JFrame implements ActionListener,Runnable{
+public class FriendChat1 extends JFrame implements ActionListener{
 
 	
 	//
@@ -28,7 +29,7 @@ public class FriendChat extends JFrame implements ActionListener,Runnable{
 	String sender;
 	String receiver;
 	
-	public FriendChat(String sender, String receiver){
+	public FriendChat1(String sender, String receiver){
 		this.sender=sender;
 		this.receiver=receiver;
 		
@@ -64,7 +65,6 @@ public class FriendChat extends JFrame implements ActionListener,Runnable{
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource()==jb) 
 			jta.append(jtf.getText()+"\r\n");
-			while(true){
 			
 			Message mess = new Message();
 			mess.setSender(sender);
@@ -74,8 +74,8 @@ public class FriendChat extends JFrame implements ActionListener,Runnable{
 			ObjectOutputStream oos;
 			
 			try {
-				
-				oos = new ObjectOutputStream(ClientConnect.s.getOutputStream());
+				Socket s=(Socket)ClientConnect.hmSocket.get(sender);
+				oos = new ObjectOutputStream(s.getOutputStream());
 				oos.writeObject(mess);
 				
 			} catch (IOException e) {
@@ -84,26 +84,8 @@ public class FriendChat extends JFrame implements ActionListener,Runnable{
 				e.printStackTrace();
 			}
 			}
+			
+	public void appendJta(String showMessage){
+		jta.append(showMessage+"\r\n");
 	}
-	@Override
-	public void run() {
-		ObjectInputStream ois;
-		while(true){
-		try {
-			ois = new ObjectInputStream(ClientConnect.s.getInputStream());
-			Message mess=(Message)ois.readObject();
-			String showMessage=mess.getSender()+"¶Ô"+mess.getReceiver()+"Ëµ:"+mess.getContent();
-			System.out.println(showMessage);
-			jta.append(showMessage+"\r\n");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		}
 	}
-
-}

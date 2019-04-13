@@ -2,6 +2,7 @@ package com.yychatclient.controller;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.HashMap;
 
 import com.yychat.*;
 import com.yychat.model.Message;
@@ -9,7 +10,10 @@ import com.yychat.model.User;
 
 public class ClientConnect {
 	
-	public static Socket s;
+	//public static Socket s;
+	public Socket s;
+	
+	public static HashMap hmSocket=new HashMap<String,Socket>();
 	
 	public ClientConnect() {
 		try {
@@ -28,14 +32,19 @@ public class ClientConnect {
 			oos =new ObjectOutputStream(s.getOutputStream());
 			oos.writeObject(user);
 			
-			//
 			ois=new ObjectInputStream(s.getInputStream());
 			mess=(Message)ois.readObject();
+			
+			
+			if(mess.getMessageType().equals(Message.message_LoginSuccess)){
+				System.out.println(user.getUserName()+"µÇÂ½³É¹¦");
+				hmSocket.put(user.getUserName(),s);
+				new ClientRecieverThread(s).start();
+			}
 			
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return mess;
-		
-	}
 }
+	}

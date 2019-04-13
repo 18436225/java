@@ -5,10 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.net.Socket;
+import java.util.HashMap;
 
 import javax.swing.*;
 
 public class FriendList extends JFrame implements ActionListener,MouseListener{//¶¥²ãÈÝÆ÷
+	public static HashMap hmFriendChat1=new HashMap<String,FriendChat1>();
+	
 	CardLayout cardLayout;//¿¨Æ¬²¼¾Ö
 	
 	JScrollPane myFriendScrollPane,myStrangerScrollPane,blacklistScrollPane;
@@ -193,7 +197,11 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 			 JLabel jlbl=(JLabel)arg0.getSource();
 			 String receiver=jlbl.getText();
 			//new FriendChat(this.userName,receiver);
-			 new Thread(new FriendChat(this.userName,receiver)).start();
+			 //new Thread(new FriendChat(this.userName,receiver)).start();
+			 FriendChat1 friendChat1=new FriendChat1(this.userName,receiver);
+			 hmFriendChat1.put(userName+"to"+receiver,friendChat1 );
+			 
+		
 		}
 		
 	}
