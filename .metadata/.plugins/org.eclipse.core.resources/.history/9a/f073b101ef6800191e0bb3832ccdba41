@@ -51,7 +51,7 @@ public class StartServer {
 		Class.forName("com.mysql.jdbc.Driver");
 		System.out.println("已经加载了数据库驱动！");
 		//2、连接数据库
-		//String url="jdbc:mysql://127.0.0.1:3306/yychatc";
+		//String url="jdbc:mysql://127.0.0.1:3306/yychat";
 		//中文用户名必须用下面的url
 		String url="jdbc:mysql://127.0.0.1:3306/yychat?useUnicode=true&characterEncoding=UTF-8";
 		String dbUser="root";

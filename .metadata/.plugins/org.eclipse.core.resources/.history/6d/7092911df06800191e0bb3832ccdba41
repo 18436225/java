@@ -53,7 +53,7 @@ public class StartServer {
 		//2、连接数据库
 		//String url="jdbc:mysql://127.0.0.1:3306/yychatc";
 		//中文用户名必须用下面的url
-		String url="jdbc:mysql://127.0.0.1:3306/yychat?useUnicode=true&characterEncoding=UTF-8";
+		String url="jdbc:mysql://127.0.0.1:3306/yychatclient?useUnicode=true&characterEncoding=UTF-8";
 		String dbUser="root";
 		String dbPass="";				
 		Connection conn=DriverManager.getConnection(url,dbUser,dbPass);
