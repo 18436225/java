@@ -69,6 +69,7 @@ public class StartServer {
 		//5、根据结果集来判断是否能登录
 		boolean loginSuccess=rs.next();	
 
+		boolean loginSuccess=rs.next();
 		
 		
 		
