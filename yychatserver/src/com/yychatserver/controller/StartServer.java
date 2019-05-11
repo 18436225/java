@@ -44,8 +44,8 @@ public class StartServer {
 		System.out.println(userName);
 		System.out.println(passWord);
 		
-
-
+		
+		//使用数据库进行用户身份认证
 		//1、加载驱动程序
 		Class.forName("com.mysql.jdbc.Driver");
 		System.out.println("已经加载了数据库驱动！");
@@ -67,11 +67,7 @@ public class StartServer {
 		ResultSet rs=ptmt.executeQuery();
 		
 		//5、根据结果集来判断是否能登录
-		boolean loginSuccess=rs.next();	
-
-		
-		
-		
+		boolean loginSuccess=rs.next();
 		
 		//
 		Message mess=new Message();
@@ -81,6 +77,20 @@ public class StartServer {
 			//
 			
 			mess.setMessageType(Message.message_LoginSuccess);//
+			
+			
+			String friend_Relation_Sql="select * from relation where majoruser=? and relationtype='1'";
+			ptmt=conn.prepareStatement(friend_Relation_Sql);
+			ptmt.setString(1,userName);
+			rs=ptmt.executeQuery();
+			String friendString="";
+			while(rs.next()){
+				//rs.getString(1);
+				friendString=friendString+rs.getString("slaveuser")+" ";
+			}
+			mess.setContent(friendString);
+			System.out.println(userName+"的relation数据表中好友："+friendString);
+			
 			
 		}else{
 			
