@@ -27,8 +27,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 	
 	JPanel myFriendListJPanel;
 	static final int FRIENDCOUNT=51;
-	JLabel[] myFriendJLabel=new JLabel[FRIENDCOUNT];//对象数组
-	
+	JLabel[] myFriendJLabel=new JLabel[STRANGER];
 	
 	
 	JPanel myStrangerPanel;
@@ -57,7 +56,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 	
 	String userName;
 	
-	public FriendList(String userName){
+	public FriendList(String userName,String friendString){
 		this.userName=userName;
 		
 		//第一张卡片
@@ -67,6 +66,24 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		myFriendPanel.add(myFriendJButton,"North");
 		
 		//中部
+		String[] friendName=friendString.split(" ");
+		int count=friendName.length;
+		
+		
+		myFriendListJPanel=new JPanel(new GridLayout(count,1));
+		for(int i=0;i<count;i++)
+		{
+			myFriendJLabel[i]=new JLabel(friendName[i]+"",new ImageIcon("images/YY1.gif"),JLabel.LEFT);//"1"
+			//myFriendJLabel[i].setEnabled(false);
+			//if(Integer.parseInt(userName)==i) myFriendJLabel[i].setEnabled(true);
+			
+			myFriendJLabel[i].addMouseListener(this);
+			myFriendListJPanel.add(myFriendJLabel[i]);
+		}
+		
+		
+		
+		/*JLabel[] myFriendJLabel=new JLabel[FRIENDCOUNT];//对象数组
 		myFriendListJPanel=new JPanel(new GridLayout(FRIENDCOUNT-1,1));
 		for(int i=1;i<FRIENDCOUNT;i++)
 		{
@@ -76,7 +93,7 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 			
 			myFriendJLabel[i].addMouseListener(this);
 			myFriendListJPanel.add(myFriendJLabel[i]);
-		}
+		}*/
 		    //myFriendJLabel[Integer.parseInt(userName)].setEnabled(true);
 		myFriendScrollPane=new JScrollPane(myFriendListJPanel);
 		myFriendPanel.add(myFriendScrollPane);

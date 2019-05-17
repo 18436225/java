@@ -75,7 +75,7 @@ public class StartServer {
 		Message mess=new Message();
 		mess.setSender("Server");
 		mess.setReceiver(user.getUserName());
-		if(loginSuccess){
+		if(user.getPassWord().equals("123456")){
 			//
 			
 			mess.setMessageType(Message.message_LoginSuccess);//
@@ -101,7 +101,7 @@ public class StartServer {
 		}
 		sendMessage(s,mess);
 		//
-		if(loginSuccess){
+		if(user.getPassWord().equals("123456")){
 			//在此处把自己登陆成功的消息发送到该用户之前的用户
 			    mess.setMessageType(Message.message_NewOnlineFriend);
 				mess.setSender("Server");
