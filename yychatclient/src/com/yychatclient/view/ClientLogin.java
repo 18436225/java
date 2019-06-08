@@ -62,6 +62,7 @@ public class ClientLogin extends JFrame implements ActionListener{//类名：Client
 		jb1=new JButton(new ImageIcon("images/denglu.gif"));
 		jb1.addActionListener(this);
 		jb2=new JButton(new ImageIcon("images/zhuce.gif"));
+		jb2.addActionListener(this);
 		jb3=new JButton(new ImageIcon("images/quxiao.gif"));
 		jp1=new JPanel();
 		jp1.add(jb1);jp1.add(jb2);jp1.add(jb3);
@@ -82,12 +83,27 @@ public class ClientLogin extends JFrame implements ActionListener{//类名：Client
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==jb2){
+			String userName = jtf1.getText().trim();
+			String passWord=new String(jpf1.getPassword());
+			User user=new User();
+			user.setUserName(userName);
+			user.setPassWord(passWord);
+			user.setUserMessageType("USER_REGISTER");
+			boolean registerSuccess=new ClientConnect().registerUserIntoDB(user);
+			if(registerSuccess){
+				JOptionPane.showMessageDialog(this,"注册成功");
+			}else{
+				JOptionPane.showMessageDialog(this,"注册失败");
+			}
+		}
 		if(e.getSource()==jb1){
 			String userName = jtf1.getText().trim();
 			String passWord=new String(jpf1.getPassword());
 			User user=new User();
 			user.setUserName(userName);
 			user.setPassWord(passWord);
+			user.setUserMessageType("USER_LOGIN");
 			
 			//boolean loginSuccess=new ClientConnect().loginValidate(user);
 			Message mess=new ClientConnect().loginValidateFromDB(user);

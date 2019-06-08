@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 public class YychatDbUtil {
 			public static final String MYSQLDRIVER="com.mysql.jdbc.Driver";
@@ -33,6 +34,67 @@ public class YychatDbUtil {
 				}
 				return conn;
 			}
+		public static boolean seekUser(String userName){
+			boolean seekUserResult=false;
+			Connection conn=getConnection();
+			String user_Register_Sql="select * from user where username=?";
+			PreparedStatement ptmt=null;
+			ResultSet rs=null;
+			try {
+				ptmt=conn.prepareStatement(user_Register_Sql);
+				ptmt.setString(1, userName);
+				rs=ptmt.executeQuery();
+				seekUserResult=rs.next();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+				closeDB(conn,ptmt,rs);
+			}
+			return seekUserResult;	
+		}
+		
+		public static int addRelation(String majorUser,String slaveUser,String relationType){
+			int count=0;
+			Connection conn=getConnection();
+			String relation_Add_sql="insert into relation(majoruser,slaveuser,relationtype) values(?,?,?)";
+			PreparedStatement ptmt=null;
+			ResultSet rs=null;
+			try {
+				ptmt = conn.prepareStatement(relation_Add_sql);
+				ptmt.setString(1, majorUser);
+				ptmt.setString(2, slaveUser);
+				ptmt.setString(3, relationType);
+				
+				count=ptmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+				closeDB(conn, ptmt, rs);
+			}
+			return count;
+		}
+		
+		public static void addUser(String userName,String passWord){
+			Connection conn=getConnection();
+			String user_add_Sql="insert into user(username,password,registertimestamp) values(?,?,?)";
+			PreparedStatement ptmt=null;
+			ResultSet rs=null;
+			try {
+				ptmt = conn.prepareStatement(user_add_Sql);
+				ptmt.setString(1, userName);
+				ptmt.setString(2, passWord);
+				//java.util.Date date=new java.util.Date();
+				Date date =new Date();
+				java.sql.Timestamp timestamp=new java.sql.Timestamp(date.getTime());
+				ptmt.setTimestamp(3,timestamp);
+				//4、执行查询，返回结果集
+				int count=ptmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+				closeDB(conn, ptmt, rs);
+			}
+		}
 		public static boolean loginValidate(String userName,String passWord){
 				boolean loginSuccess=false;
 				Connection conn=getConnection();
@@ -58,6 +120,30 @@ public class YychatDbUtil {
 				return loginSuccess;
 		
 		}
+		
+		public static boolean seekRelation(String majorUser,String slaveUser,String relationType){
+			boolean seekRelationResult=false;
+			Connection conn=getConnection();
+			String seek_Relation_Sql="select * from relation where majoruser=? and slaveuser=? and relationtype=?";
+			PreparedStatement ptmt=null;
+			ResultSet rs=null;
+			try {
+				ptmt=conn.prepareStatement(seek_Relation_Sql);
+				ptmt.setString(1, majorUser);
+				ptmt.setString(2, slaveUser);
+				ptmt.setString(3, relationType);
+				rs=ptmt.executeQuery();
+				seekRelationResult=rs.next();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+				closeDB(conn,ptmt,rs);
+			}
+			
+			return seekRelationResult;
+			
+		}
+		
 		public static String getFriendString(String userName){
 			Connection conn=getConnection();
 			String friend_Relation_Sql="select * from relation where majoruser=? and relationtype='1'";
