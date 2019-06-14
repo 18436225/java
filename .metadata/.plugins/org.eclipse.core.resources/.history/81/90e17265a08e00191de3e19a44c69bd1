@@ -74,7 +74,7 @@ public class YychatDbUtil {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
-				closeDB(conn,ptmt,rs);
+				closeDB(conn,ptmt,);
 			}			
 		}
 		

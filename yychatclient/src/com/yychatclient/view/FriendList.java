@@ -205,8 +205,8 @@ public class FriendList extends JFrame implements ActionListener,MouseListener{/
 		//
 		String[] friendName=friendString.split(" ");
 		int count=friendName.length;
-		for(int i=0;i<count;i++){
-			myFriendJLabel[Integer.parseInt(friendName[i])].setEnabled(true);
+		for(int i=1;i<count;i++){
+			//myFriendJLabel[Integer.parseInt(friendName[i])].setEnabled(true);
 		}
 	}
 	@Override

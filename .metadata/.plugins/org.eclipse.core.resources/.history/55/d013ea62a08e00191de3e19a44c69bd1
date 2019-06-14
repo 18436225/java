@@ -57,8 +57,7 @@ public class YychatDbUtil {
 			Connection conn=getConnection();
 			//创建PreparedStatement对象，用来执行SQL语句,标准
 			String message_Add_Sql="insert into message(sender,receiver,content,timestamp) values(?,?,?,?)";
-			PreparedStatement ptmt=null;	
-			ResultSet rs=null;
+			PreparedStatement ptmt=null;		
 			try {
 				ptmt = conn.prepareStatement(message_Add_Sql);
 				ptmt.setString(1, sender);
@@ -74,7 +73,7 @@ public class YychatDbUtil {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
-				closeDB(conn,ptmt,rs);
+				closeDB(conn,ptmt);
 			}			
 		}
 		
